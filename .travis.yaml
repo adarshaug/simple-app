@@ -4,6 +4,6 @@ services:
 
 before_install:
   -docker build -t adarshaug/simple-app .
-  -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  -docker login -u "$DOCKER_USERNAME" --password-stdin
   -docker push adarsh/simple-app
   
