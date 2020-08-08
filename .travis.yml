@@ -1,9 +1,22 @@
 sudo: required
 services:
   - docker
-
-before_install:
-  -docker build -t adarshaug/simple-app .
-  -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  -docker push adarshaug/simple-app
+env:
+  global:
+    - IMAGE_NAME=adarshaug/simple-app
+before_script:
+ 
+script:
+  -docker build -t "${IMAGE_NAME}" .
   
+
+after_script:
+  - docker images
+
+before_deploy:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+deploy:
+  provider: script
+  script: docker push "${IMAGE_NAME}:latest"
+  on:
+    branch: master
