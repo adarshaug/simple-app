@@ -7,7 +7,7 @@ env:
 before_script:
  
 script:
-  -docker build --tag adarshaug/simple-app .
+  -docker build -t simple-app .
   
 
 after_script:
