@@ -6,4 +6,3 @@ before_install:
   -docker build -t adarshaug/simple-app .
   -docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   -docker push adarsh/simple-app
-  
