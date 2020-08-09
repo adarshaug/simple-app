@@ -3,6 +3,7 @@ pipeline {
 		registry = "adarshaug/simple-app"
 		registryCredential = 'dockerhub'
 		dockerImage = ''
+		mvnHome=''
 	}
 	agent any
 	stages {
@@ -13,7 +14,8 @@ pipeline {
 		}
 		stage('Build') {
 	       steps {
-	         sh 'mvn package'
+	         mvnHome = tool 'Maven'
+	         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
 	       }
 	    }
 	    stage('Building image') {
