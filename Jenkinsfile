@@ -1,7 +1,7 @@
 pipeline {
 	environment {
 		registry = "adarshaug/simple-app"
-		registryCredential = 'adarshaug'
+		registryCredential = 'dockerhub'
 		dockerImage = ''
 	}
 agent any
