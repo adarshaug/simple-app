@@ -1,6 +1,6 @@
 pipeline{
 	environment{
-		MAVEN_HOME = tool('M3')
+		MAVEN_HOME = tool('MAVEN')
 	}
 	agent any
 	stages(){
