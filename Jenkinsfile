@@ -6,7 +6,7 @@ pipeline{
 	stages(){
 		stage('Build')
 		{
-			sh '${MAVEN_HOME}/bin/mvn install
+			sh '${MAVEN_HOME}/bin/mvn install'
 		}
 	}
 }
