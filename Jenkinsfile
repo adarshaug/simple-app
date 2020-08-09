@@ -6,7 +6,10 @@ pipeline{
 	stages(){
 		stage('Build')
 		{
-			sh '${MAVEN_HOME}/bin/mvn install'
+			steps{
+				sh '${MAVEN_HOME}/bin/mvn install'
+			}
+			
 		}
 	}
 }
