@@ -4,10 +4,10 @@ pipeline{
 	}
 	agent any
 	stages(){
-		stage('Build')
+		stage('Build')-
 		{
 			steps{
-				sh '${MAVEN_HOME}/bin/mvn install'
+				sh '${MAVEN_HOME}/bin/mvn clean package'
 			}
 			
 		}
