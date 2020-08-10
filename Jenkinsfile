@@ -5,10 +5,7 @@ pipeline {
         registry = "docker_hub_account/repository_name"
         registryCredential = 'dockerhub'
     }  
-	agent {
-		args '-v '
-	}
-	
+	agent any
         
      stages {
         stage('Build')	{
