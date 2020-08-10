@@ -1,5 +1,6 @@
 pipeline {  
     environment {
+	MAVEN_HOME = tool('MAVEN')
         docker = tool('Docker')
         registry = "docker_hub_account/repository_name"
         registryCredential = 'dockerhub'
