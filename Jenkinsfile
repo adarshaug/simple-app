@@ -11,7 +11,7 @@ pipeline {
         stage('Build')	{
 		steps{
 			
-			sh '${MAVEN_HOME}/bin/mvn ${MAVEN_HOME}/m2/settings.xm package -Dmaven.test.skip=true' 
+			sh '${MAVEN_HOME}/bin/mvn --settings ${MAVEN_HOME}/m2/settings.xml package -Dmaven.test.skip=true' 
 		}
 	}
         
