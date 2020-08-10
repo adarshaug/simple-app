@@ -7,12 +7,23 @@ pipeline {
     agent any  
         
      stages {
+        stage('Build')-
+		{
+			steps{
+                script {
+                    sh '${MAVEN_HOME}/bin/mvn clean package' 
+                }
+			}
+		}
+        
         stage('Building image') {
-          steps{
+          steps {
             script {
+                docker.withRegis
               docker.build registry + ":$BUILD_NUMBER"
             }
           }
         }
+         
     }
 }
