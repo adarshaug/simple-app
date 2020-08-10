@@ -10,7 +10,7 @@ pipeline {
      stages {
         stage('Build')	{
 		steps{
-			sh '${MAVEN_HOME}/bin/mvn package' 
+			sh '${MAVEN_HOME}/bin/mvn package -Dmaven.test.skip=true' 
 		}
 	}
         
