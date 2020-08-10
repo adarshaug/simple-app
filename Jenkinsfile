@@ -10,12 +10,10 @@ pipeline {
      stages {
         stage('Build')-
 		{
-			steps{
-                script {
-                    sh "${MAVEN_HOME}/bin/mvn clean package" 
-                }
-			}
+		steps{
+	    	sh '${MAVEN_HOME}/bin/mvn clean package' 
 		}
+	}
         
         stage('Building image') {
           steps {
