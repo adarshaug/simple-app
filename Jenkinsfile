@@ -8,20 +8,14 @@ pipeline {
 	agent any
         
      stages {
+	     stage('fetch code'){
+		     
+	     }
         stage('Build')	{
 		steps{
 			sh '${MAVEN_HOME}/bin/mvn --settings ${MAVEN_HOME}/m2/settings.xml package -Dmaven.test.skip=true' 
 		}
-	}
-        
-        stage('Building image') {
-          steps {
-            script {
-                docker.withRegis
-              docker.build registry + ":$BUILD_NUMBER"
-            }
-          }
-        }
-         
-    }
+	   }
+     }     
+    
 }
