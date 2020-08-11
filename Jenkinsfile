@@ -9,7 +9,7 @@ pipeline {
         
      stages {
 	     stage('fetch code'){
-		     
+		     git changelog: false, poll: false, url: 'https://github.com/adarshaug/simple-app.git'
 	     }
         stage('Build')	{
 		steps{
