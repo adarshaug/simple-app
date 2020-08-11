@@ -8,9 +8,11 @@ pipeline {
 	agent any
         
      stages {
-	     stage('fetch code'){
-		     git changelog: false, poll: false, url: 'https://github.com/adarshaug/simple-app.git'
-	     }
+	     stage('Cloning our Git') {
+		steps {
+			git changelog: false, poll: false, url: 'https://github.com/adarshaug/simple-app.git'
+			}
+		}
         stage('Build')	{
 		steps{
 			sh '${MAVEN_HOME}/bin/mvn --settings ${MAVEN_HOME}/m2/settings.xml package -Dmaven.test.skip=true' 
