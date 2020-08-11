@@ -10,7 +10,6 @@ pipeline {
      stages {
         stage('Build')	{
 		steps{
-			
 			sh '${MAVEN_HOME}/bin/mvn --settings ${MAVEN_HOME}/m2/settings.xml package -Dmaven.test.skip=true' 
 		}
 	}
