@@ -1,7 +1,7 @@
 pipeline {  
     environment {
 	MAVEN_HOME = tool('MAVEN')
-        
+    registryCredential = 'dockerhub'
     }  
 	agent any
         
@@ -16,6 +16,12 @@ pipeline {
         stage('Build')	{
 			steps{
 				sh "${MAVEN_HOME}/bin/mvn clean package"
+			}
+	     }
+	     
+	     stage('Docker Build')	{
+			steps{
+				sh "docker build -t adarshaug/simple-app ."
 			}
 	     }
 	     
